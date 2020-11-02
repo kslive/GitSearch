@@ -1,5 +1,5 @@
 //
-//  SearchGitView.swift
+//  BaseView.swift
 //  GitSearch
 //
 //  Created by Eugene Kiselev on 02.11.2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchGitView: UIView {
+class BaseView: UIView {
     
     let tableView = UITableView()
 
@@ -20,7 +20,7 @@ class SearchGitView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
     override func updateConstraints() {
@@ -39,6 +39,7 @@ class SearchGitView: UIView {
     
     private func setupTableView() {
         
+        tableView.allowsSelection = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(tableView)

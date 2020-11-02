@@ -9,7 +9,8 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    private let searchGitView = SearchGitView()
+    let baseView = BaseView()
+    
     private let baseNavigationController = BaseNavigationController()
         
     // MARK: - Life Cycle
@@ -17,23 +18,16 @@ class BaseViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        view = searchGitView
+        view = baseView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
         setupNavigationController()
     }
     
     // MARK: - Help Functions
-    
-    private func setupTableView() {
-        
-        searchGitView.tableView.dataSource = self
-        searchGitView.tableView.delegate = self
-    }
     
     func setupNavigationController(title: String? = nil, action: Selector? = nil) {
         
@@ -44,16 +38,5 @@ class BaseViewController: UIViewController {
         guard let action = action else { return }
         
         baseNavigationController.configureBackButton(for: self, action: action)
-    }
-}
-
-extension BaseViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
     }
 }
