@@ -7,20 +7,11 @@
 
 import UIKit
 
-class SearchGitViewController: UIViewController {
+class SearchGitViewController: BaseViewController {
     
-    private let searchGitView = SearchGitView()
-    
-    // MARK: Life Cycle
-    
-    override func loadView() {
-        super.loadView()
-        
-        view = searchGitView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func setupNavigationController(title: String? = nil, action: Selector! = nil) {
+        super.setupNavigationController(title: Constants.firstTitle, action: action)
     }
 }
+
 
