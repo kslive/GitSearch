@@ -14,7 +14,7 @@ class BaseNavigationController: UINavigationController {
         
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
-        navigationBar.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        navigationBar.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)        
     }
     
     func configureTextTitleNavigationController(title: String, for controller: UIViewController) {
@@ -22,11 +22,15 @@ class BaseNavigationController: UINavigationController {
         controller.title = title
     }
     
-    func configureBackButton(for controller: UIViewController, action: Selector) {
+    func configureButton(for controller: UIViewController, action: Selector, image: UIImage, isRight: Bool) {
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "Vector"), style: .plain, target: controller, action: action)
+        let button = UIBarButtonItem(image: image, style: .plain, target: controller, action: action)
         
-        backButton.tintColor = .black
-        controller.navigationItem.leftBarButtonItem  = backButton
+        button.tintColor = .black
+        
+        switch isRight {
+        case true: return controller.navigationItem.rightBarButtonItem = button
+        case false: return controller.navigationItem.leftBarButtonItem = button
+        }
     }
 }

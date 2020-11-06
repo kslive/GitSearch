@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		6B79EA3F254F2B4E007CABDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79EA3E254F2B4E007CABDF /* AppDelegate.swift */; };
 		6B79EA41254F2B4E007CABDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79EA40254F2B4E007CABDF /* SceneDelegate.swift */; };
-		6B79EA43254F2B4E007CABDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79EA42254F2B4E007CABDF /* ViewController.swift */; };
-		6B79EA46254F2B4E007CABDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B79EA44254F2B4E007CABDF /* Main.storyboard */; };
+		6B79EA43254F2B4E007CABDF /* SearchGitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79EA42254F2B4E007CABDF /* SearchGitViewController.swift */; };
 		6B79EA48254F2B50007CABDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B79EA47254F2B50007CABDF /* Assets.xcassets */; };
 		6B79EA4B254F2B50007CABDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B79EA49254F2B50007CABDF /* LaunchScreen.storyboard */; };
+		6B79EA68254F2DCC007CABDF /* SearchGitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79EA67254F2DCC007CABDF /* SearchGitViewCell.swift */; };
+		6BB7D87725500EA400A8F77F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D87625500EA400A8F77F /* BaseView.swift */; };
+		6BB7D87B2550105900A8F77F /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D87A2550105900A8F77F /* BaseNavigationController.swift */; };
+		6BB7D888255011C600A8F77F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D887255011C600A8F77F /* Constants.swift */; };
+		6BB7D88C2550125200A8F77F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D88B2550125200A8F77F /* BaseViewController.swift */; };
+		6BB7D890255014A600A8F77F /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D88F255014A600A8F77F /* ViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B79EA3B254F2B4E007CABDF /* GitSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B79EA3E254F2B4E007CABDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B79EA40254F2B4E007CABDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6B79EA42254F2B4E007CABDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6B79EA45254F2B4E007CABDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6B79EA42254F2B4E007CABDF /* SearchGitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGitViewController.swift; sourceTree = "<group>"; };
 		6B79EA47254F2B50007CABDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B79EA4A254F2B50007CABDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B79EA4C254F2B50007CABDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B79EA67254F2DCC007CABDF /* SearchGitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGitViewCell.swift; sourceTree = "<group>"; };
+		6BB7D87625500EA400A8F77F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		6BB7D87A2550105900A8F77F /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		6BB7D887255011C600A8F77F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6BB7D88B2550125200A8F77F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		6BB7D88F255014A600A8F77F /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,92 @@
 		6B79EA3D254F2B4E007CABDF /* GitSearch */ = {
 			isa = PBXGroup;
 			children = (
-				6B79EA3E254F2B4E007CABDF /* AppDelegate.swift */,
-				6B79EA40254F2B4E007CABDF /* SceneDelegate.swift */,
-				6B79EA42254F2B4E007CABDF /* ViewController.swift */,
-				6B79EA44254F2B4E007CABDF /* Main.storyboard */,
-				6B79EA47254F2B50007CABDF /* Assets.xcassets */,
-				6B79EA49254F2B50007CABDF /* LaunchScreen.storyboard */,
-				6B79EA4C254F2B50007CABDF /* Info.plist */,
+				6B79EA5F254F2CAC007CABDF /* Application */,
+				6B79EA64254F2D9A007CABDF /* SearchGit */,
+				6B79EA60254F2CC0007CABDF /* Supporting Files */,
 			);
 			path = GitSearch;
+			sourceTree = "<group>";
+		};
+		6B79EA5F254F2CAC007CABDF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6B79EA62254F2D02007CABDF /* View */,
+				6B79EA61254F2CFA007CABDF /* Controller */,
+				6BB7D886255011A700A8F77F /* Helpers */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6B79EA60254F2CC0007CABDF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B79EA40254F2B4E007CABDF /* SceneDelegate.swift */,
+				6B79EA47254F2B50007CABDF /* Assets.xcassets */,
+				6B79EA4C254F2B50007CABDF /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B79EA61254F2CFA007CABDF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B79EA3E254F2B4E007CABDF /* AppDelegate.swift */,
+				6BB7D87A2550105900A8F77F /* BaseNavigationController.swift */,
+				6BB7D88B2550125200A8F77F /* BaseViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B79EA62254F2D02007CABDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B79EA49254F2B50007CABDF /* LaunchScreen.storyboard */,
+				6BB7D87625500EA400A8F77F /* BaseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B79EA64254F2D9A007CABDF /* SearchGit */ = {
+			isa = PBXGroup;
+			children = (
+				6BB7D8952550173A00A8F77F /* Model */,
+				6B79EA66254F2DB8007CABDF /* View */,
+				6B79EA65254F2DAB007CABDF /* Controller */,
+			);
+			path = SearchGit;
+			sourceTree = "<group>";
+		};
+		6B79EA65254F2DAB007CABDF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B79EA42254F2B4E007CABDF /* SearchGitViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6B79EA66254F2DB8007CABDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B79EA67254F2DCC007CABDF /* SearchGitViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6BB7D886255011A700A8F77F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6BB7D88F255014A600A8F77F /* ViewManager.swift */,
+				6BB7D887255011C600A8F77F /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6BB7D8952550173A00A8F77F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +213,6 @@
 			files = (
 				6B79EA4B254F2B50007CABDF /* LaunchScreen.storyboard in Resources */,
 				6B79EA48254F2B50007CABDF /* Assets.xcassets in Resources */,
-				6B79EA46254F2B4E007CABDF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +223,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B79EA43254F2B4E007CABDF /* ViewController.swift in Sources */,
+				6BB7D890255014A600A8F77F /* ViewManager.swift in Sources */,
+				6B79EA43254F2B4E007CABDF /* SearchGitViewController.swift in Sources */,
 				6B79EA3F254F2B4E007CABDF /* AppDelegate.swift in Sources */,
+				6BB7D87B2550105900A8F77F /* BaseNavigationController.swift in Sources */,
 				6B79EA41254F2B4E007CABDF /* SceneDelegate.swift in Sources */,
+				6BB7D888255011C600A8F77F /* Constants.swift in Sources */,
+				6BB7D88C2550125200A8F77F /* BaseViewController.swift in Sources */,
+				6BB7D87725500EA400A8F77F /* BaseView.swift in Sources */,
+				6B79EA68254F2DCC007CABDF /* SearchGitViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6B79EA44254F2B4E007CABDF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6B79EA45254F2B4E007CABDF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6B79EA49254F2B50007CABDF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +372,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = GitSearch/Info.plist;
+				INFOPLIST_FILE = "GitSearch/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kiseleff.GitSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +392,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = GitSearch/Info.plist;
+				INFOPLIST_FILE = "GitSearch/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +401,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kiseleff.GitSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

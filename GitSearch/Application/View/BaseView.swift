@@ -39,6 +39,7 @@ class BaseView: UIView {
     
     private func setupTableView() {
         
+        tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
