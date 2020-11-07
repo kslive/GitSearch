@@ -12,13 +12,13 @@ class RepoInfoCell: UITableViewCell {
     
     var tapButton: ((UITableViewCell) -> ())?
     
-    let nameRepo = UILabel()
-    let languageProject = UILabel()
-    let stars = UIImageView()
-    let starsCount = UILabel()
-    let updateLabel = UILabel()
-    let button = UIButton()
-    let line = LineView()
+    private let nameRepo = UILabel()
+    private let languageProject = UILabel()
+    private let stars = UIImageView()
+    private let starsCount = UILabel()
+    private let updateLabel = UILabel()
+    private let button = UIButton()
+    private let line = LineView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

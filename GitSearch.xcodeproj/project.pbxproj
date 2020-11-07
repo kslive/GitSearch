@@ -17,7 +17,11 @@
 		6BB7D87B2550105900A8F77F /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D87A2550105900A8F77F /* BaseNavigationController.swift */; };
 		6BB7D888255011C600A8F77F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D887255011C600A8F77F /* Constants.swift */; };
 		6BB7D88C2550125200A8F77F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D88B2550125200A8F77F /* BaseViewController.swift */; };
-		6BB7D890255014A600A8F77F /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D88F255014A600A8F77F /* ViewManager.swift */; };
+		6BFE59202555E15100179AA8 /* ProfileGitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE591F2555E15100179AA8 /* ProfileGitController.swift */; };
+		6BFE59242555E16F00179AA8 /* ProfileInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE59232555E16F00179AA8 /* ProfileInfoCell.swift */; };
+		6BFE59272555E18600179AA8 /* RepoInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE59262555E18600179AA8 /* RepoInfoCell.swift */; };
+		6BFE592B2555E77B00179AA8 /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE592A2555E77B00179AA8 /* UITableView + Extension.swift */; };
+		6BFE59382555F4FA00179AA8 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE59372555F4FA00179AA8 /* LineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +37,11 @@
 		6BB7D87A2550105900A8F77F /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		6BB7D887255011C600A8F77F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6BB7D88B2550125200A8F77F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		6BB7D88F255014A600A8F77F /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
+		6BFE591F2555E15100179AA8 /* ProfileGitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGitController.swift; sourceTree = "<group>"; };
+		6BFE59232555E16F00179AA8 /* ProfileInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoCell.swift; sourceTree = "<group>"; };
+		6BFE59262555E18600179AA8 /* RepoInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoInfoCell.swift; sourceTree = "<group>"; };
+		6BFE592A2555E77B00179AA8 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
+		6BFE59372555F4FA00179AA8 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 			children = (
 				6B79EA5F254F2CAC007CABDF /* Application */,
 				6B79EA64254F2D9A007CABDF /* SearchGit */,
+				6BFE591B2555E10E00179AA8 /* ProfileGit */,
 				6B79EA60254F2CC0007CABDF /* Supporting Files */,
 			);
 			path = GitSearch;
@@ -78,6 +87,7 @@
 			children = (
 				6B79EA62254F2D02007CABDF /* View */,
 				6B79EA61254F2CFA007CABDF /* Controller */,
+				6BFE59292555E76200179AA8 /* Extensions */,
 				6BB7D886255011A700A8F77F /* Helpers */,
 			);
 			path = Application;
@@ -108,6 +118,7 @@
 			children = (
 				6B79EA49254F2B50007CABDF /* LaunchScreen.storyboard */,
 				6BB7D87625500EA400A8F77F /* BaseView.swift */,
+				6BFE59372555F4FA00179AA8 /* LineView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,7 +126,6 @@
 		6B79EA64254F2D9A007CABDF /* SearchGit */ = {
 			isa = PBXGroup;
 			children = (
-				6BB7D8952550173A00A8F77F /* Model */,
 				6B79EA66254F2DB8007CABDF /* View */,
 				6B79EA65254F2DAB007CABDF /* Controller */,
 			);
@@ -141,17 +151,43 @@
 		6BB7D886255011A700A8F77F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				6BB7D88F255014A600A8F77F /* ViewManager.swift */,
 				6BB7D887255011C600A8F77F /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		6BB7D8952550173A00A8F77F /* Model */ = {
+		6BFE591B2555E10E00179AA8 /* ProfileGit */ = {
 			isa = PBXGroup;
 			children = (
+				6BFE591D2555E12300179AA8 /* View */,
+				6BFE591C2555E11C00179AA8 /* Controller */,
 			);
-			name = Model;
+			path = ProfileGit;
+			sourceTree = "<group>";
+		};
+		6BFE591C2555E11C00179AA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6BFE591F2555E15100179AA8 /* ProfileGitController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6BFE591D2555E12300179AA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6BFE59232555E16F00179AA8 /* ProfileInfoCell.swift */,
+				6BFE59262555E18600179AA8 /* RepoInfoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6BFE59292555E76200179AA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6BFE592A2555E77B00179AA8 /* UITableView + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,14 +259,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB7D890255014A600A8F77F /* ViewManager.swift in Sources */,
 				6B79EA43254F2B4E007CABDF /* SearchGitViewController.swift in Sources */,
 				6B79EA3F254F2B4E007CABDF /* AppDelegate.swift in Sources */,
 				6BB7D87B2550105900A8F77F /* BaseNavigationController.swift in Sources */,
+				6BFE59202555E15100179AA8 /* ProfileGitController.swift in Sources */,
+				6BFE592B2555E77B00179AA8 /* UITableView + Extension.swift in Sources */,
+				6BFE59242555E16F00179AA8 /* ProfileInfoCell.swift in Sources */,
 				6B79EA41254F2B4E007CABDF /* SceneDelegate.swift in Sources */,
+				6BFE59272555E18600179AA8 /* RepoInfoCell.swift in Sources */,
 				6BB7D888255011C600A8F77F /* Constants.swift in Sources */,
 				6BB7D88C2550125200A8F77F /* BaseViewController.swift in Sources */,
 				6BB7D87725500EA400A8F77F /* BaseView.swift in Sources */,
+				6BFE59382555F4FA00179AA8 /* LineView.swift in Sources */,
 				6B79EA68254F2DCC007CABDF /* SearchGitViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

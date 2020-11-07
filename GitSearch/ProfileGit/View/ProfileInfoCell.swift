@@ -11,12 +11,12 @@ class ProfileInfoCell: UITableViewCell {
     
     private let stackView = UIStackView()
     
-    let nameLabel = UILabel()
-    let loginLabel = UILabel()
-    let photo = UIImageView()
-    let dateJoined = UILabel()
-    let locationLabel = UILabel()
-    let line = LineView()
+    private let nameLabel = UILabel()
+    private let loginLabel = UILabel()
+    private let photo = UIImageView()
+    private let dateJoined = UILabel()
+    private let locationLabel = UILabel()
+    private let line = LineView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

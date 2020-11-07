@@ -13,7 +13,6 @@ struct Constants {
     
     struct title {
         static let firstTitle = "Search Profiles"
-        static let secondTitle = "Detail Profile"
     }
     
     struct namedImages {

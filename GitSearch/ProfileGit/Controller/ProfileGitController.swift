@@ -26,7 +26,6 @@ private extension ProfileGitController {
     private func setup() {
         
         setupTableView()
-        setupNavigationController()
     }
     
     private func setupTableView() {
@@ -35,22 +34,6 @@ private extension ProfileGitController {
         baseView.tableView.delegate = self
         baseView.tableView.register(ProfileInfoCell.self, forCellReuseIdentifier: String(describing: ProfileInfoCell.self))
         baseView.tableView.register(RepoInfoCell.self, forCellReuseIdentifier: String(describing: RepoInfoCell.self))
-    }
-    
-    private func setupNavigationController() {
-        
-        baseNavigationController.configureTextTitleNavigationController(title: Constants.title.secondTitle, for: self)
-        baseNavigationController.configureButton(for: self, action: #selector(tappedBackButton), image: UIImage(named: Constants.namedImages.back)!, isRight: false)
-    }
-}
-
-    // MARK: - Actions
-
-private extension ProfileGitController {
-    
-    @objc private func tappedBackButton() {
-        
-        self.dismiss(animated: true)
     }
 }
 
