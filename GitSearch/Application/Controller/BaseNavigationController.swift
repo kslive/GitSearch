@@ -12,9 +12,7 @@ class BaseNavigationController: UINavigationController {
     override func loadView() {
         super.loadView()
         
-        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.backgroundColor = UIColor.appColor(.background)
+        navigationBar.barTintColor = UIColor.appColor(.background)
     }
     
     func configureTextTitleNavigationController(title: String, for controller: UIViewController) {

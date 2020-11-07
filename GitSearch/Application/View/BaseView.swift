@@ -39,7 +39,6 @@ class BaseView: UIView {
     // MARK: - Help Functions
     
     private func setupTableView() {
-
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
