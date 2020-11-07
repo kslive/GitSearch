@@ -19,4 +19,11 @@ class BaseViewController: UIViewController {
         
         view = baseView
     }
+    
+    func configureKeyBoard(selector willShow: Selector,_ willHide: Selector) {
+        
+        NotificationCenter.default.addObserver(self, selector: willShow, name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: willHide, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 }

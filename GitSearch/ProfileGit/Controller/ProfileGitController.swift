@@ -11,11 +11,35 @@ class ProfileGitController: BaseViewController {
     
     private var isTappedButton: Bool = false
     private var selectedIndex: IndexPath!
+    private var repoProfile: Repositories!
+    private var repoCount = [RepositoriesCountElement]()
+    private let networkManager = NetworkManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+    }
+    
+    func fetchRequestUserProfileAndRepositories(_ login: String?) {
+        
+        guard let login = login else { return }
+        
+        networkManager.fetchRequestUserProfile(login: login) { [weak self] repoProfile in
+            self?.repoProfile = repoProfile
+            
+            OperationQueue.main.addOperation {
+                self?.baseView.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+            }
+        }
+        
+        networkManager.fetchRequestUserRepositories(login: login) { [weak self] repoCount in
+            self?.repoCount = repoCount
+            
+            OperationQueue.main.addOperation {
+                self?.baseView.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+            }
+        }
     }
 }
 
@@ -42,7 +66,7 @@ private extension ProfileGitController {
 extension ProfileGitController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return repoCount.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,6 +97,8 @@ extension ProfileGitController {
     func profileInfoCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell: ProfileInfoCell = tableView.dequeueCell(at: indexPath)
         
+        cell.configure(for: repoProfile)
+        
         return cell
     }
     
@@ -86,6 +112,8 @@ extension ProfileGitController {
             tableView.beginUpdates()
             tableView.endUpdates()
         }
+        
+        cell.configure(for: repoCount, for: indexPath)
         
         return cell
     }

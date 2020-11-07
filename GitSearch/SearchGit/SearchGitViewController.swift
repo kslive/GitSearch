@@ -9,7 +9,8 @@ import UIKit
 
 class SearchGitViewController: BaseViewController {
     
-    private var users = [User]()
+    private var users = [Item]()
+    private var networkManager = NetworkManager.shared
         
     //MARK: - Life Cycle
     
@@ -29,6 +30,8 @@ private extension SearchGitViewController {
         setupTableView()
         setupSearchController()
         setupNavigationController()
+        
+        configureKeyBoard(selector: #selector(keyboardWasShown), #selector(keyboardWillBeHidden))
     }
     
     private func setupTableView() {
@@ -53,16 +56,30 @@ private extension SearchGitViewController {
         baseNavigationController.configureButton(for: self, action: #selector(tappedSortButton), image: UIImage(named: Constants.namedImages.sort)!, isRight: true)
     }
     
+    private func clearTableView() {
+        users.removeAll()
+        baseView.tableView.reloadData()
+    }
+    
     private func filterContentForSearchText(_ searchText: String) {
         
-        users = users.filter{ (group: User) -> Bool in
+        fetchRequestUserSearch(searchText)
+        users = users.filter{ (item: Item) -> Bool in
             
-            guard let name = group.name else { return false }
+            guard let name = item.login else { return false }
             return name.contains(searchText)
         }
+    }
+    
+    private func fetchRequestUserSearch(_ searchText: String) {
         
-        baseView.tableView.beginUpdates()
-        baseView.tableView.endUpdates()
+        networkManager.fetchRequestUserSearch(text: searchText) { [weak self] users in
+            self?.users = users
+            
+            OperationQueue.main.addOperation {
+                self?.baseView.tableView.reloadSections(IndexSet(integer: 0), with: .right)
+            }
+        }
     }
 }
 
@@ -72,6 +89,14 @@ private extension SearchGitViewController {
     
     @objc private func tappedSortButton() {
     }
+    
+    @objc func keyboardWasShown(_ notification: Notification) {
+        baseView.searchController.searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    @objc func keyboardWillBeHidden(_ notification: Notification) {
+        baseView.searchController.searchBar.setShowsCancelButton(false, animated: true)
+    }
 }
 
     // MARK: Search Bar Delegate
@@ -80,7 +105,13 @@ extension SearchGitViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
         let searchBar = baseView.searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
+        
+        guard let text = searchBar.text else { return }
+        filterContentForSearchText(text)
+        
+        if text.isEmpty && text == "" {
+            clearTableView()
+        }
     }
 }
 
@@ -89,7 +120,7 @@ extension SearchGitViewController: UISearchResultsUpdating {
 extension SearchGitViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count + 10
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,9 +139,11 @@ extension SearchGitViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let profileGitController = ProfileGitController()
+        let login = users[indexPath.row].login
         
         if indexPath == tableView.indexPathForSelectedRow {
             
+            profileGitController.fetchRequestUserProfileAndRepositories(login)
             present(profileGitController, animated: true)
         }
     }
@@ -122,6 +155,9 @@ extension SearchGitViewController {
     
     func searchProfileCell(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell: SearchGitViewCell = tableView.dequeueCell(at: indexPath)
+        let user = users[indexPath.row]
+        
+        cell.configure(for: user)
         
         return cell
     }

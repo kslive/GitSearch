@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct User {
+struct User: Decodable {
+    let items: [Item]
+}
+
+struct Item: Codable {
     
-    var login: String
-    var type:String
-    var avatarUrl: String
-    var name: String?
-    var createdAt: String?
-    var location: String?
-    var repos: [Repositories]?
+    let login: String?
+    let avatarUrl: String?
+    let type: String?
 }

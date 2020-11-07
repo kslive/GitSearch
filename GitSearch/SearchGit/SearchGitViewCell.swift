@@ -71,6 +71,23 @@ class SearchGitViewCell: UITableViewCell {
             line.heightAnchor.constraint(equalToConstant: constant / 10)
         ])
     }
+    
+    func configure(for model: Item) {
+        
+        loginLabel.text = model.login
+        typeLabel.text = model.type
+        
+        DispatchQueue.global().async { [weak self] in
+            
+            guard let url = model.avatarUrl,
+                  let imageURL = URL(string: url),
+                  let imageData = try? Data(contentsOf: imageURL) else { return }
+            
+            DispatchQueue.main.async {
+                self?.photo.image = UIImage(data: imageData)
+            }
+        }
+    }
 }
 
     // MARK: - Help Functions
@@ -99,7 +116,6 @@ private extension SearchGitViewCell {
     private func setupPhoto() {
         
         photo.image = UIImage(named: Constants.namedImages.defaultImage)
-        photo.layer.cornerRadius = frame.height / 2
         
         photo.translatesAutoresizingMaskIntoConstraints = false
         
@@ -108,7 +124,6 @@ private extension SearchGitViewCell {
     
     private func setupLoginName() {
         
-        loginLabel.text = "Login Name"
         loginLabel.numberOfLines = 1
         loginLabel.textAlignment = .left
         loginLabel.font = .systemFont(ofSize: 15)
@@ -121,7 +136,6 @@ private extension SearchGitViewCell {
     
     private func setupTypeLabel() {
         
-        typeLabel.text = "User"
         typeLabel.numberOfLines = 1
         typeLabel.textAlignment = .left
         typeLabel.font = .systemFont(ofSize: 15)

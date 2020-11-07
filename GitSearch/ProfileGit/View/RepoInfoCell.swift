@@ -96,6 +96,17 @@ class RepoInfoCell: UITableViewCell {
             line.heightAnchor.constraint(equalToConstant: constant / 10)
         ])
     }
+    
+    func configure(for model: [RepositoriesCountElement]?, for indexPath: IndexPath?) {
+        
+        guard let indexPath = indexPath,
+              let model = model else { return }
+        
+        self.languageProject.text = model[indexPath.row].language ?? ""
+        self.nameRepo.text = model[indexPath.row].name ?? ""
+        self.starsCount.text = "\(model[indexPath.row].stargazersCount ?? 0)"
+        self.updateLabel.text = model[indexPath.row].updatedAt ?? ""
+    }
 }
 
     // MARK: - Help Functions
@@ -126,7 +137,6 @@ private extension RepoInfoCell {
     
     private func setupNameRepoLabel() {
         
-        nameRepo.text = "Name Repo"
         nameRepo.numberOfLines = 1
         nameRepo.textAlignment = .left
         nameRepo.font = .systemFont(ofSize: 13)
@@ -138,8 +148,7 @@ private extension RepoInfoCell {
     }
     
     private func setupLanguageProjectLabel() {
-        
-        languageProject.text = "Swift"
+
         languageProject.numberOfLines = 1
         languageProject.textAlignment = .left
         languageProject.font = .systemFont(ofSize: 12)
@@ -165,8 +174,7 @@ private extension RepoInfoCell {
     private func setupStarsCount() {
         
         starsCount.isHidden = true
-        
-        starsCount.text = "0"
+
         starsCount.numberOfLines = 1
         starsCount.textAlignment = .left
         starsCount.font = .systemFont(ofSize: 13)
@@ -180,8 +188,7 @@ private extension RepoInfoCell {
     private func setupUpdateLabel() {
         
         updateLabel.isHidden = true
-        
-        updateLabel.text = "00.00.00 00.00"
+ 
         updateLabel.numberOfLines = 1
         updateLabel.textAlignment = .right
         updateLabel.font = .systemFont(ofSize: 13)

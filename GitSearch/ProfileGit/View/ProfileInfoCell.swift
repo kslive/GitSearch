@@ -14,7 +14,7 @@ class ProfileInfoCell: UITableViewCell {
     private let nameLabel = UILabel()
     private let loginLabel = UILabel()
     private let photo = UIImageView()
-    private let dateJoined = UILabel()
+    private var dateJoined = UILabel()
     private let locationLabel = UILabel()
     private let line = LineView()
     
@@ -86,6 +86,25 @@ class ProfileInfoCell: UITableViewCell {
             line.heightAnchor.constraint(equalToConstant: constant / 10)
         ])
     }
+    
+    func configure(for model: Repositories?) {
+        
+        self.loginLabel.text = model?.login ?? ""
+        self.nameLabel.text = model?.name ?? ""
+        self.dateJoined.text = model?.createdAt ?? ""
+        self.locationLabel.text = model?.location ?? ""
+        
+        DispatchQueue.global().async { [weak self] in
+            
+            guard let url = model?.avatarUrl,
+                  let imageURL = URL(string: url),
+                  let imageData = try? Data(contentsOf: imageURL) else { return }
+            
+            DispatchQueue.main.async {
+                self?.photo.image = UIImage(data: imageData)
+            }
+        }
+    }
 }
 
     // MARK: - Help Functions
@@ -115,7 +134,6 @@ private extension ProfileInfoCell {
     
     private func setupNameLabel() {
         
-        nameLabel.text = "Name Name"
         nameLabel.numberOfLines = 1
         nameLabel.textAlignment = .center
         nameLabel.font = .systemFont(ofSize: 17)
@@ -128,7 +146,6 @@ private extension ProfileInfoCell {
     
     private func setupLoginName() {
         
-        loginLabel.text = "Login Name"
         loginLabel.numberOfLines = 1
         loginLabel.textAlignment = .center
         loginLabel.font = .systemFont(ofSize: 15)
@@ -142,7 +159,6 @@ private extension ProfileInfoCell {
     private func setupPhoto() {
         
         photo.image = UIImage(named: Constants.namedImages.defaultImage)
-        photo.layer.cornerRadius = frame.height / 2
         
         photo.translatesAutoresizingMaskIntoConstraints = false
         
@@ -151,7 +167,6 @@ private extension ProfileInfoCell {
     
     private func setupDateJoined() {
         
-        dateJoined.text = "00.00.00"
         dateJoined.numberOfLines = 1
         dateJoined.textAlignment = .center
         dateJoined.font = .systemFont(ofSize: 15)
@@ -164,7 +179,6 @@ private extension ProfileInfoCell {
     
     private func setupLocationLabel() {
         
-        locationLabel.text = "Moscow"
         locationLabel.numberOfLines = 1
         locationLabel.textAlignment = .center
         locationLabel.font = .systemFont(ofSize: 15)
