@@ -127,7 +127,7 @@ private extension SearchGitViewCell {
         loginLabel.numberOfLines = 1
         loginLabel.textAlignment = .left
         loginLabel.font = .systemFont(ofSize: 15)
-        loginLabel.textColor = .black
+        loginLabel.textColor = UIColor.appColor(.title)
         
         loginLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -139,7 +139,7 @@ private extension SearchGitViewCell {
         typeLabel.numberOfLines = 1
         typeLabel.textAlignment = .left
         typeLabel.font = .systemFont(ofSize: 15)
-        typeLabel.textColor = .gray
+        typeLabel.textColor = UIColor.appColor(.title)
         
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         

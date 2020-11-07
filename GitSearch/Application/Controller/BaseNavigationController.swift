@@ -14,7 +14,7 @@ class BaseNavigationController: UINavigationController {
         
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
-        navigationBar.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)        
+        navigationBar.backgroundColor = UIColor.appColor(.background)
     }
     
     func configureTextTitleNavigationController(title: String, for controller: UIViewController) {
@@ -26,7 +26,7 @@ class BaseNavigationController: UINavigationController {
         
         let button = UIBarButtonItem(image: image, style: .plain, target: controller, action: action)
         
-        button.tintColor = .black
+        button.tintColor = UIColor.appColor(.title)
         
         switch isRight {
         case true: return controller.navigationItem.rightBarButtonItem = button

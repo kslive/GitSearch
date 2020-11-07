@@ -17,7 +17,7 @@ class SearchGitViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+        setup()        
     }
 }
 
@@ -54,11 +54,6 @@ private extension SearchGitViewController {
         
         baseNavigationController.configureTextTitleNavigationController(title: Constants.title.firstTitle, for: self)
         baseNavigationController.configureButton(for: self, action: #selector(tappedSortButton), image: UIImage(named: Constants.namedImages.sort)!, isRight: true)
-    }
-    
-    private func clearTableView() {
-        users.removeAll()
-        baseView.tableView.reloadData()
     }
     
     private func filterContentForSearchText(_ searchText: String) {
@@ -108,10 +103,6 @@ extension SearchGitViewController: UISearchResultsUpdating {
         
         guard let text = searchBar.text else { return }
         filterContentForSearchText(text)
-        
-        if text.isEmpty && text == "" {
-            clearTableView()
-        }
     }
 }
 

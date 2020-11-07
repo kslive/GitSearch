@@ -23,3 +23,8 @@ struct Constants {
         static let arrowDown = "arrow.down"
     }
 }
+
+enum AssetsColor: String {
+    case background
+    case title
+}

@@ -137,7 +137,7 @@ private extension ProfileInfoCell {
         nameLabel.numberOfLines = 1
         nameLabel.textAlignment = .center
         nameLabel.font = .systemFont(ofSize: 17)
-        nameLabel.textColor = .black
+        nameLabel.textColor = UIColor.appColor(.title)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -149,7 +149,7 @@ private extension ProfileInfoCell {
         loginLabel.numberOfLines = 1
         loginLabel.textAlignment = .center
         loginLabel.font = .systemFont(ofSize: 15)
-        loginLabel.textColor = .gray
+        loginLabel.textColor = UIColor.appColor(.title)
         
         loginLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -170,7 +170,7 @@ private extension ProfileInfoCell {
         dateJoined.numberOfLines = 1
         dateJoined.textAlignment = .center
         dateJoined.font = .systemFont(ofSize: 15)
-        dateJoined.textColor = .gray
+        dateJoined.textColor = UIColor.appColor(.title)
         
         dateJoined.translatesAutoresizingMaskIntoConstraints = false
         
@@ -182,7 +182,7 @@ private extension ProfileInfoCell {
         locationLabel.numberOfLines = 1
         locationLabel.textAlignment = .center
         locationLabel.font = .systemFont(ofSize: 15)
-        locationLabel.textColor = .gray
+        locationLabel.textColor = UIColor.appColor(.title)
         
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         

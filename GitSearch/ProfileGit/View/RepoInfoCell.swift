@@ -140,7 +140,7 @@ private extension RepoInfoCell {
         nameRepo.numberOfLines = 1
         nameRepo.textAlignment = .left
         nameRepo.font = .systemFont(ofSize: 13)
-        nameRepo.textColor = .black
+        nameRepo.textColor = UIColor.appColor(.title)
         
         nameRepo.translatesAutoresizingMaskIntoConstraints = false
         
@@ -152,7 +152,7 @@ private extension RepoInfoCell {
         languageProject.numberOfLines = 1
         languageProject.textAlignment = .left
         languageProject.font = .systemFont(ofSize: 12)
-        languageProject.textColor = .gray
+        languageProject.textColor = UIColor.appColor(.title)
         
         languageProject.translatesAutoresizingMaskIntoConstraints = false
         
@@ -164,7 +164,7 @@ private extension RepoInfoCell {
         stars.isHidden = true
         
         stars.image = UIImage(systemName: Constants.namedImages.star)
-        stars.tintColor = .black
+        stars.tintColor = UIColor.appColor(.title)
         
         stars.translatesAutoresizingMaskIntoConstraints = false
         
@@ -178,7 +178,7 @@ private extension RepoInfoCell {
         starsCount.numberOfLines = 1
         starsCount.textAlignment = .left
         starsCount.font = .systemFont(ofSize: 13)
-        starsCount.textColor = .black
+        starsCount.textColor = UIColor.appColor(.title)
         
         starsCount.translatesAutoresizingMaskIntoConstraints = false
         
@@ -192,7 +192,7 @@ private extension RepoInfoCell {
         updateLabel.numberOfLines = 1
         updateLabel.textAlignment = .right
         updateLabel.font = .systemFont(ofSize: 13)
-        updateLabel.textColor = .black
+        updateLabel.textColor = UIColor.appColor(.title)
         
         updateLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -203,7 +203,7 @@ private extension RepoInfoCell {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: Constants.namedImages.arrowDown), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIColor.appColor(.title)
         
         button.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         
