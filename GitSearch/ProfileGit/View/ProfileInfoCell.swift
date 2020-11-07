@@ -17,6 +17,7 @@ class ProfileInfoCell: UITableViewCell {
     private var dateJoined = UILabel()
     private let locationLabel = UILabel()
     private let line = LineView()
+    private let activityIndicator = UIActivityIndicatorView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,6 +41,12 @@ class ProfileInfoCell: UITableViewCell {
             
             stackView.widthAnchor.constraint(equalTo: widthAnchor),
             stackView.heightAnchor.constraint(equalTo: heightAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+        
+            activityIndicator.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: stackView.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -102,6 +109,7 @@ class ProfileInfoCell: UITableViewCell {
             
             DispatchQueue.main.async {
                 self?.photo.image = UIImage(data: imageData)
+                self?.isElements(hide: false)
             }
         }
     }
@@ -116,6 +124,7 @@ private extension ProfileInfoCell {
         selectionStyle = .none
         
         setupStackView()
+        setupActivityIndicator()
         setupNameLabel()
         setupLoginName()
         setupPhoto()
@@ -130,6 +139,18 @@ private extension ProfileInfoCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(stackView)
+    }
+    
+    private func setupActivityIndicator() {
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = UIColor.appColor(.title)
+        
+        isElements(hide: true)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.addSubview(activityIndicator)
     }
     
     private func setupNameLabel() {
@@ -196,5 +217,33 @@ private extension ProfileInfoCell {
         line.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addSubview(line)
+    }
+}
+
+    // MARK: - HELP INDICATOR FUNCTIONS
+
+private extension ProfileInfoCell {
+    
+    private func isElements(hide: Bool) {
+        
+        if hide {
+            activityIndicator.startAnimating()
+            
+            line.isHidden = true
+            photo.isHidden = true
+            loginLabel.isHidden = true
+            locationLabel.isHidden = true
+            nameLabel.isHidden = true
+            dateJoined.isHidden = true
+        } else {
+            activityIndicator.stopAnimating()
+            
+            line.isHidden = false
+            photo.isHidden = false
+            loginLabel.isHidden = false
+            locationLabel.isHidden = false
+            nameLabel.isHidden = false
+            dateJoined.isHidden = false
+        }
     }
 }

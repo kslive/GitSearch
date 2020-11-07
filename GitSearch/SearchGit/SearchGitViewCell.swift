@@ -9,7 +9,9 @@ import UIKit
 
 class SearchGitViewCell: UITableViewCell {
     
+    private let baseView = BaseView()
     private let stackView = UIStackView()
+    private let activityIndicator = UIActivityIndicatorView()
     
     private let line = LineView()
     private let photo = UIImageView()
@@ -38,6 +40,12 @@ class SearchGitViewCell: UITableViewCell {
             
             stackView.widthAnchor.constraint(equalTo: widthAnchor),
             stackView.heightAnchor.constraint(equalTo: heightAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+        
+            activityIndicator.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: stackView.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -85,7 +93,9 @@ class SearchGitViewCell: UITableViewCell {
             
             DispatchQueue.main.async {
                 self?.photo.image = UIImage(data: imageData)
+                self?.isElements(hide: false)
             }
+            
         }
     }
 }
@@ -99,6 +109,7 @@ private extension SearchGitViewCell {
         selectionStyle = .none
         
         setupStackView()
+        setupActivityIndicator()
         setupPhoto()
         setupLoginName()
         setupTypeLabel()
@@ -111,6 +122,18 @@ private extension SearchGitViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(stackView)
+    }
+    
+    private func setupActivityIndicator() {
+        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = UIColor.appColor(.title)
+        
+        isElements(hide: true)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.addSubview(activityIndicator)
     }
     
     private func setupPhoto() {
@@ -153,5 +176,29 @@ private extension SearchGitViewCell {
         line.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addSubview(line)
+    }
+}
+
+    // MARK: - HELP INDICATOR FUNCTIONS
+
+private extension SearchGitViewCell {
+    
+    private func isElements(hide: Bool) {
+        
+        if hide {
+            activityIndicator.startAnimating()
+            
+            line.isHidden = true
+            photo.isHidden = true
+            loginLabel.isHidden = true
+            typeLabel.isHidden = true
+        } else {
+            activityIndicator.stopAnimating()
+            
+            line.isHidden = false
+            photo.isHidden = false
+            loginLabel.isHidden = false
+            typeLabel.isHidden = false
+        }
     }
 }

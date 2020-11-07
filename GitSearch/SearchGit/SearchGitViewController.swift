@@ -46,6 +46,7 @@ private extension SearchGitViewController {
         baseView.searchController.searchResultsUpdater = self
         baseView.searchController.obscuresBackgroundDuringPresentation = false
         baseView.searchController.searchBar.placeholder = "Search Users"
+        baseView.searchController.searchBar.tintColor = UIColor.appColor(.title)
         navigationItem.searchController = baseView.searchController
         definesPresentationContext = true
     }

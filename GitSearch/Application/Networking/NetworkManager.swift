@@ -33,7 +33,10 @@ class NetworkManager {
                     
                     let searchUsers = try decoder.decode(User.self, from: response.data).items
                     
-                    completion(searchUsers)
+                    DispatchQueue.main.async {
+            
+                        completion(searchUsers)
+                    }
                     
                 } catch let error {
                     
