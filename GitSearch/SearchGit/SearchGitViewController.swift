@@ -32,13 +32,13 @@ private extension SearchGitViewController {
     
     private func setupTableView() {
         
-        baseView.tableView.register(SearchGitViewCell.self, forCellReuseIdentifier: "SearchGitViewCell")
+        baseView.tableView.register(SearchGitViewCell.self, forCellReuseIdentifier: String(describing: SearchGitViewCell.self))
     }
     
     private func setupNavigationController() {
         
-        baseNavigationController.configureTextTitleNavigationController(title: Constants.firstTitle, for: self)
-        baseNavigationController.configureButton(for: self, action: #selector(tappedSortButton), image: UIImage(named: "Sort")!, isRight: true)
+        baseNavigationController.configureTextTitleNavigationController(title: Constants.title.secondTitle, for: self)
+        baseNavigationController.configureButton(for: self, action: #selector(tappedSortButton), image: UIImage(named: Constants.namedImages.sort)!, isRight: true)
     }
 }
 

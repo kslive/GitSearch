@@ -5,10 +5,22 @@
 //  Created by Eugene Kiselev on 02.11.2020.
 //
 
-import Foundation
+import UIKit
 
-enum Constants {
+let constant: CGFloat = 10
+
+struct Constants {
     
-    static let firstTitle = "Search Profiles"
-    static let secondTitle = "Detail Profile"
+    struct title {
+        static let firstTitle = "Search Profiles"
+        static let secondTitle = "Detail Profile"
+    }
+    
+    struct namedImages {
+        static let back = "Back"
+        static let sort = "Sort"
+        static let defaultImage = "Round"
+        static let star = "star"
+        static let arrowDown = "arrow.down"
+    }
 }
