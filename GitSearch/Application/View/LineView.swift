@@ -18,7 +18,7 @@ class LineView: UIView {
         path.addLine(to: CGPoint(x: 0, y: frame.width))
         path.close()
         
-        UIColor(red: 0.169, green: 0.165, blue: 0.18, alpha: 1).set()
+        UIColor.appColor(.title)?.set()
         
         path.stroke()
     }
