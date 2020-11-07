@@ -104,6 +104,8 @@ private extension RepoInfoCell {
     
     private func setup() {
         
+        selectionStyle = .none
+        
         setupStackView()
         setupButton()
         setupNameRepoLabel()

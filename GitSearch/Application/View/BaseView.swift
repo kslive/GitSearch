@@ -9,6 +9,7 @@ import UIKit
 
 class BaseView: UIView {
     
+    let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
 
     override init(frame: CGRect) {
@@ -44,5 +45,4 @@ class BaseView: UIView {
         
         addSubview(tableView)
     }
-    
 }

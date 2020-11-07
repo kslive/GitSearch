@@ -13,6 +13,8 @@
 		6B79EA48254F2B50007CABDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B79EA47254F2B50007CABDF /* Assets.xcassets */; };
 		6B79EA4B254F2B50007CABDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B79EA49254F2B50007CABDF /* LaunchScreen.storyboard */; };
 		6B79EA68254F2DCC007CABDF /* SearchGitViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79EA67254F2DCC007CABDF /* SearchGitViewCell.swift */; };
+		6B91675725568B1500A52328 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91675625568B1500A52328 /* User.swift */; };
+		6B91675B25568B4D00A52328 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B91675A25568B4D00A52328 /* Repositories.swift */; };
 		6BB7D87725500EA400A8F77F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D87625500EA400A8F77F /* BaseView.swift */; };
 		6BB7D87B2550105900A8F77F /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D87A2550105900A8F77F /* BaseNavigationController.swift */; };
 		6BB7D888255011C600A8F77F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB7D887255011C600A8F77F /* Constants.swift */; };
@@ -33,6 +35,8 @@
 		6B79EA4A254F2B50007CABDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B79EA4C254F2B50007CABDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B79EA67254F2DCC007CABDF /* SearchGitViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGitViewCell.swift; sourceTree = "<group>"; };
+		6B91675625568B1500A52328 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6B91675A25568B4D00A52328 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		6BB7D87625500EA400A8F77F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		6BB7D87A2550105900A8F77F /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		6BB7D887255011C600A8F77F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		6B79EA64254F2D9A007CABDF /* SearchGit */ = {
 			isa = PBXGroup;
 			children = (
+				6B91675525568B0B00A52328 /* Model */,
 				6B79EA66254F2DB8007CABDF /* View */,
 				6B79EA65254F2DAB007CABDF /* Controller */,
 			);
@@ -148,6 +153,22 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		6B91675525568B0B00A52328 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6B91675625568B1500A52328 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6B91675925568B4600A52328 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6B91675A25568B4D00A52328 /* Repositories.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6BB7D886255011A700A8F77F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +180,7 @@
 		6BFE591B2555E10E00179AA8 /* ProfileGit */ = {
 			isa = PBXGroup;
 			children = (
+				6B91675925568B4600A52328 /* Model */,
 				6BFE591D2555E12300179AA8 /* View */,
 				6BFE591C2555E11C00179AA8 /* Controller */,
 			);
@@ -265,9 +287,11 @@
 				6BFE59202555E15100179AA8 /* ProfileGitController.swift in Sources */,
 				6BFE592B2555E77B00179AA8 /* UITableView + Extension.swift in Sources */,
 				6BFE59242555E16F00179AA8 /* ProfileInfoCell.swift in Sources */,
+				6B91675725568B1500A52328 /* User.swift in Sources */,
 				6B79EA41254F2B4E007CABDF /* SceneDelegate.swift in Sources */,
 				6BFE59272555E18600179AA8 /* RepoInfoCell.swift in Sources */,
 				6BB7D888255011C600A8F77F /* Constants.swift in Sources */,
+				6B91675B25568B4D00A52328 /* Repositories.swift in Sources */,
 				6BB7D88C2550125200A8F77F /* BaseViewController.swift in Sources */,
 				6BB7D87725500EA400A8F77F /* BaseView.swift in Sources */,
 				6BFE59382555F4FA00179AA8 /* LineView.swift in Sources */,

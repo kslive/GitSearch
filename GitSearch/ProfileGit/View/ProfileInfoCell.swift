@@ -94,6 +94,8 @@ private extension ProfileInfoCell {
     
     private func setup() {
         
+        selectionStyle = .none
+        
         setupStackView()
         setupNameLabel()
         setupLoginName()

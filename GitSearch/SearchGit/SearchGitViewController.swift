@@ -8,6 +8,8 @@
 import UIKit
 
 class SearchGitViewController: BaseViewController {
+    
+    private var users = [User]()
         
     //MARK: - Life Cycle
     
@@ -25,6 +27,7 @@ private extension SearchGitViewController {
     private func setup() {
         
         setupTableView()
+        setupSearchController()
         setupNavigationController()
     }
     
@@ -35,10 +38,31 @@ private extension SearchGitViewController {
         baseView.tableView.register(SearchGitViewCell.self, forCellReuseIdentifier: String(describing: SearchGitViewCell.self))
     }
     
+    private func setupSearchController() {
+        
+        baseView.searchController.searchResultsUpdater = self
+        baseView.searchController.obscuresBackgroundDuringPresentation = false
+        baseView.searchController.searchBar.placeholder = "Search Users"
+        navigationItem.searchController = baseView.searchController
+        definesPresentationContext = true
+    }
+    
     private func setupNavigationController() {
         
         baseNavigationController.configureTextTitleNavigationController(title: Constants.title.firstTitle, for: self)
         baseNavigationController.configureButton(for: self, action: #selector(tappedSortButton), image: UIImage(named: Constants.namedImages.sort)!, isRight: true)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        
+        users = users.filter{ (group: User) -> Bool in
+            
+            guard let name = group.name else { return false }
+            return name.contains(searchText)
+        }
+        
+        baseView.tableView.beginUpdates()
+        baseView.tableView.endUpdates()
     }
 }
 
@@ -47,7 +71,16 @@ private extension SearchGitViewController {
 private extension SearchGitViewController {
     
     @objc private func tappedSortButton() {
-        print("Tapped Sort Button")
+    }
+}
+
+    // MARK: Search Bar Delegate
+
+extension SearchGitViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        let searchBar = baseView.searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
 }
 
@@ -56,7 +89,7 @@ private extension SearchGitViewController {
 extension SearchGitViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return users.count + 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
